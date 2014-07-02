@@ -2,10 +2,12 @@ package ru.vlsu.animal.model;
 
 import ru.vlsu.animal.constants.IModelStringConst;
 
+import java.io.Serializable;
+
 /**
  * Травоядные
  */
-public class Herbivores extends Animal {
+public class Herbivores extends Animal implements Serializable {
 
     public Herbivores(int id, String name, boolean isLive, int m) {
         super(id, name, isLive, m);

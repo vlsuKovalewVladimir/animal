@@ -2,10 +2,12 @@ package ru.vlsu.animal.model;
 
 import ru.vlsu.animal.constants.IModelStringConst;
 
+import java.io.Serializable;
+
 /**
  * Животные
  */
-public abstract class Animal extends Eat {
+public abstract class Animal extends Eat implements Serializable {
 
     private int id;
     private String name;
@@ -51,5 +53,13 @@ public abstract class Animal extends Eat {
 
     public void setLive(boolean isLive) {
         this.isLive = isLive;
+    }
+
+    @Override
+    public String toString() {
+        return "id = " + id +
+               ", name = '" + name + "', " +
+                super.toString() +
+                ", isLive = " + isLive;
     }
 }

@@ -2,10 +2,12 @@ package ru.vlsu.animal.model;
 
 import ru.vlsu.animal.constants.IModelStringConst;
 
+import java.io.Serializable;
+
 /**
  * Хищники
  */
-public class Predator extends Animal {
+public class Predator extends Animal implements Serializable {
 
     public Predator(int id, String name, boolean isLive, int m) {
         super(id, name, isLive, m);

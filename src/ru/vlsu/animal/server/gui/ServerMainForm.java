@@ -4,15 +4,8 @@ import ru.vlsu.animal.constants.IServerFormStringConst;
 
 import java.awt.BorderLayout;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.BoxLayout;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JTextArea;
 
 public class ServerMainForm extends JFrame{
 
@@ -46,9 +39,12 @@ public class ServerMainForm extends JFrame{
         JPanel panel_3 = new JPanel();
         panel.add(panel_3);
 
-        JPanel panel_1 = new JPanel();
+        /*JPanel panel_1 = new JPanel();
         contentPane.add(panel_1, BorderLayout.CENTER);
-        panel_1.setLayout(new BorderLayout(0, 0));
+        panel_1.setLayout(new BorderLayout(0, 0));*/
+
+        JScrollPane scrollPane = new JScrollPane();
+        contentPane.add(scrollPane, BorderLayout.CENTER);
 
 
         JLabel lblNewLabel = new JLabel(IServerFormStringConst.GUI_LABEL_PORT);
@@ -70,7 +66,7 @@ public class ServerMainForm extends JFrame{
         textAreaConsole = new JTextArea();
         textAreaConsole.setText(IServerFormStringConst.GUI_TEXT_AREA);
         textAreaConsole.setEnabled(false);
-        panel_1.add(textAreaConsole, BorderLayout.CENTER);
+        scrollPane.setViewportView(textAreaConsole);
     }
 
     private void initAction(){

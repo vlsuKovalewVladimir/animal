@@ -21,6 +21,7 @@ public class Herbivores extends Animal implements Serializable {
             try{
                 int newM = getM() + e.getM();
                 this.setM(newM);
+                e.setM(0);
             } catch (IllegalArgumentException ex){
                 int newM = e.getM() - (100 - this.getM());
                 e.setM(newM);

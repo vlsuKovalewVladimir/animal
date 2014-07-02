@@ -1,6 +1,7 @@
 package ru.vlsu.animal.client.gui;
 
 import ru.vlsu.animal.constants.IClientFormStringConst;
+import ru.vlsu.animal.constants.IServerFormStringConst;
 import ru.vlsu.animal.model.Grass;
 import ru.vlsu.animal.model.Herbivores;
 import ru.vlsu.animal.model.Predator;
@@ -30,15 +31,14 @@ public class ClientMainForm extends JFrame {
     private JButton btnSendData;
 
     private JButton btnHerbivoresAdd;
-    private JButton btnHerbivoresUpdate;
+    private JButton btnHerbivoresEat;
     private JButton btnHerbivoresDelete;
 
     private JButton btnPredatorAdd;
-    private JButton btnPredatorUpdate;
+    private JButton btnPredatorEat;
     private JButton btnPredatorDelete;
 
     private JButton btnGrassAdd;
-    private JButton btnGrassUpdate;
     private JButton btnGrassDelete;
 
 
@@ -49,7 +49,7 @@ public class ClientMainForm extends JFrame {
 
     private void initDesign() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 932, 546);
+        setBounds(100, 100, 794, 546);
         JPanel contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         contentPane.setLayout(new BorderLayout(0, 0));
@@ -125,11 +125,11 @@ public class ClientMainForm extends JFrame {
         panelData3.add(panelData_btn3, BorderLayout.NORTH);
         panelData_btn3.setLayout(new BoxLayout(panelData_btn3, BoxLayout.X_AXIS));
 
-        JScrollPane scrollPane_1 = new JScrollPane();
-        panelData2.add(scrollPane_1, BorderLayout.CENTER);
-
         JScrollPane scrollPane = new JScrollPane();
         panelData1.add(scrollPane, BorderLayout.CENTER);
+
+        JScrollPane scrollPane_1 = new JScrollPane();
+        panelData2.add(scrollPane_1, BorderLayout.CENTER);
 
         JScrollPane scrollPane_2 = new JScrollPane();
         panelData3.add(scrollPane_2, BorderLayout.CENTER);
@@ -140,6 +140,7 @@ public class ClientMainForm extends JFrame {
         panel_4.add(lblNewLabel);
 
         textFieldIP = new JTextField();
+        textFieldIP.setText(IClientFormStringConst.GUI_TEXT_FIELD_IP);
         panel_4.add(textFieldIP);
         textFieldIP.setColumns(15);
 
@@ -154,6 +155,7 @@ public class ClientMainForm extends JFrame {
         panel_5.add(lblNewLabel_1);
 
         textFieldPort = new JTextField();
+        textFieldPort.setText(IServerFormStringConst.GUI_TEXT_FIELD_PORT);
         panel_5.add(textFieldPort);
         textFieldPort.setColumns(5);
 
@@ -170,18 +172,15 @@ public class ClientMainForm extends JFrame {
         btnHerbivoresAdd = new JButton(IClientFormStringConst.GUI_BTN_ADD);
         panelData_btn1.add(btnHerbivoresAdd);
 
-        btnHerbivoresUpdate = new JButton(IClientFormStringConst.GUI_BTN_UPDATE);
-        panelData_btn1.add(btnHerbivoresUpdate);
-
         btnHerbivoresDelete = new JButton(IClientFormStringConst.GUI_BTN_DELETE);
         panelData_btn1.add(btnHerbivoresDelete);
 
+        btnHerbivoresEat = new JButton(IClientFormStringConst.GUI_BTN_EAT);
+        panelData_btn1.add(btnHerbivoresEat);
+
         tableHerbivores = new JTable();
         tableHerbivores.setModel(new DefaultTableModel(
-                new Object[][]{
-                        {null, null, null, null},
-                        {null, null, null, null},
-                },
+                new Object[][]{},
                 IClientFormStringConst.GUI_HEADER_TABLE_ANIMAL
         ){
             Class[] columnTypes = new Class[] {
@@ -198,19 +197,15 @@ public class ClientMainForm extends JFrame {
         btnPredatorAdd = new JButton(IClientFormStringConst.GUI_BTN_ADD);
         panelData_btn2.add(btnPredatorAdd);
 
-        btnPredatorUpdate = new JButton(IClientFormStringConst.GUI_BTN_UPDATE);
-        panelData_btn2.add(btnPredatorUpdate);
-
         btnPredatorDelete = new JButton(IClientFormStringConst.GUI_BTN_DELETE);
         panelData_btn2.add(btnPredatorDelete);
 
+        btnPredatorEat = new JButton(IClientFormStringConst.GUI_BTN_EAT);
+        panelData_btn2.add(btnPredatorEat);
+
         tablePredator = new JTable();
         tablePredator.setModel(new DefaultTableModel(
-                new Object[][]{
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                },
+                new Object[][]{},
                 IClientFormStringConst.GUI_HEADER_TABLE_ANIMAL
         ));
         scrollPane_1.setViewportView(tablePredator);
@@ -220,20 +215,12 @@ public class ClientMainForm extends JFrame {
         btnGrassAdd = new JButton(IClientFormStringConst.GUI_BTN_ADD);
         panelData_btn3.add(btnGrassAdd);
 
-        btnGrassUpdate = new JButton(IClientFormStringConst.GUI_BTN_UPDATE);
-        panelData_btn3.add(btnGrassUpdate);
-
         btnGrassDelete = new JButton(IClientFormStringConst.GUI_BTN_DELETE);
         panelData_btn3.add(btnGrassDelete);
 
         tableGrass = new JTable();
         tableGrass.setModel(new DefaultTableModel(
-                new Object[][]{
-                        {null},
-                        {null},
-                        {null},
-                        {null},
-                },
+                new Object[][]{},
                 IClientFormStringConst.GUI_HEADER_TABLE_GRASS
         ));
         scrollPane_2.setViewportView(tableGrass);
@@ -250,15 +237,14 @@ public class ClientMainForm extends JFrame {
         ClientMainFormTableBntListener clientMainFormTableBntListener = new ClientMainFormTableBntListener(this);
 
         btnHerbivoresAdd.addActionListener(clientMainFormTableBntListener);
-        btnHerbivoresUpdate.addActionListener(clientMainFormTableBntListener);
+        btnHerbivoresEat.addActionListener(clientMainFormTableBntListener);
         btnHerbivoresDelete.addActionListener(clientMainFormTableBntListener);
 
         btnPredatorAdd.addActionListener(clientMainFormTableBntListener);
-        btnPredatorUpdate.addActionListener(clientMainFormTableBntListener);
+        btnPredatorEat.addActionListener(clientMainFormTableBntListener);
         btnPredatorDelete.addActionListener(clientMainFormTableBntListener);
 
         btnGrassAdd.addActionListener(clientMainFormTableBntListener);
-        btnGrassUpdate.addActionListener(clientMainFormTableBntListener);
         btnGrassDelete.addActionListener(clientMainFormTableBntListener);
     }
 
@@ -411,8 +397,8 @@ public class ClientMainForm extends JFrame {
         return btnHerbivoresAdd;
     }
 
-    public JButton getBtnHerbivoresUpdate() {
-        return btnHerbivoresUpdate;
+    public JButton getBtnHerbivoresEat() {
+        return btnHerbivoresEat;
     }
 
     public JButton getBtnHerbivoresDelete() {
@@ -423,8 +409,8 @@ public class ClientMainForm extends JFrame {
         return btnPredatorAdd;
     }
 
-    public JButton getBtnPredatorUpdate() {
-        return btnPredatorUpdate;
+    public JButton getBtnPredatorEat() {
+        return btnPredatorEat;
     }
 
     public JButton getBtnPredatorDelete() {
@@ -433,10 +419,6 @@ public class ClientMainForm extends JFrame {
 
     public JButton getBtnGrassAdd() {
         return btnGrassAdd;
-    }
-
-    public JButton getBtnGrassUpdate() {
-        return btnGrassUpdate;
     }
 
     public JButton getBtnGrassDelete() {

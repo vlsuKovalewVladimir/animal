@@ -21,12 +21,14 @@ public class Predator extends Animal implements Serializable {
             try{
                 int newM = getM() + e.getM();
                 this.setM(newM);
+                e.setM(0);
             } catch (IllegalArgumentException ex){
                 int newM = e.getM() - (100 - this.getM());
                 e.setM(newM);
                 this.setM(100);
             }
-            ((Herbivores) e).die();
+            if (((Herbivores) e).isLive())
+                ((Herbivores) e).die();
             return;
         }
 

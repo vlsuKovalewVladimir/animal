@@ -365,6 +365,17 @@ public class ClientMainForm extends JFrame {
     }
 
 
+
+    public String getHost() {
+        return textFieldIP.getText();
+    }
+
+    public int getPort() throws NumberFormatException {
+        return Integer.valueOf(textFieldPort.getText());
+    }
+
+
+
     public JTable getTableHerbivores() {
         return tableHerbivores;
     }
@@ -375,14 +386,6 @@ public class ClientMainForm extends JFrame {
 
     public JTable getTableGrass() {
         return tableGrass;
-    }
-
-    public JTextField getTextFieldIP() {
-        return textFieldIP;
-    }
-
-    public JTextField getTextFieldPort() {
-        return textFieldPort;
     }
 
     public JButton getBtnUpdateData() {

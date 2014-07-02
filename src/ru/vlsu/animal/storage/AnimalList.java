@@ -4,10 +4,11 @@ import ru.vlsu.animal.model.Grass;
 import ru.vlsu.animal.model.Herbivores;
 import ru.vlsu.animal.model.Predator;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AnimalList {
+public class AnimalList implements Serializable{
     private List<Herbivores> herbivoresList;
     private List<Predator>   predatorList;
     private List<Grass>      grassList;

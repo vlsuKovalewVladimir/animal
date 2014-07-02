@@ -10,7 +10,7 @@ public interface IServerFormStringConst {
 
     public final static String GUI_TITLE_FORM      = "Сервер";
     public final static String GUI_LABEL_PORT      = "Порт: ";
-    public final static String GUI_TEXT_FIELD_PORT = "666";
+    public final static String GUI_TEXT_FIELD_PORT = "6662";
     public final static String GUI_BTN_START       = "Старт";
     public final static String GUI_BTN_STOP        = "Стоп";
     public final static String GUI_TEXT_AREA       = "Консоль: \n";

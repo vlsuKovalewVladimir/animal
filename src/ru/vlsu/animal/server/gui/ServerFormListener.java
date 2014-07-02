@@ -26,7 +26,7 @@ public class ServerFormListener implements ActionListener {
                 if (port < 1 || port > 65535)
                     throw new NumberFormatException();
 
-                server = new Server(String.valueOf(port));
+                server = new Server(port);
                 server.start();
                 form.start();
             } catch (NumberFormatException ex) {
@@ -39,7 +39,7 @@ public class ServerFormListener implements ActionListener {
         }
 
         if (source == form.getBtnStop()){
-            server.stop();
+            server.interrupt();
             form.stop();
         }
 

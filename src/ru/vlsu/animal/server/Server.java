@@ -1,18 +1,48 @@
 package ru.vlsu.animal.server;
 
-public class Server {
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.util.ArrayList;
+import java.util.List;
 
-    private String port;
+public class Server extends Thread{
 
-    public Server(String port) {
+    private int port;
+    private ServerSocket serverSocket;
+    private List<ThreadServer> threadServerList;
+
+    public Server(int port) {
         this.port = port;
     }
 
-    public void start(){
+    @Override
+    public void run(){
+        threadServerList = new ArrayList<ThreadServer>();
+
+        try{
+            serverSocket = new ServerSocket(port);
+
+            while (true){
+                ThreadServer threadServer = new ThreadServer(serverSocket.accept());
+                threadServer.start();
+                threadServerList.add(threadServer);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
-    public void stop(){
-
+    @Override
+    public void interrupt() {
+        super.interrupt();
+        for (ThreadServer threadServer : threadServerList)
+            threadServer.interrupt();
+        try {
+            serverSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

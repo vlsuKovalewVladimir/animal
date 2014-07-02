@@ -33,7 +33,7 @@ public class ServerMainForm extends JFrame{
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         contentPane.setLayout(new BorderLayout(0, 0));
         setContentPane(contentPane);
-        setTitle("Сервер");
+        setTitle(IServerFormStringConst.GUI_TITLE_FORM);
 
         JPanel panel = new JPanel();
         contentPane.add(panel, BorderLayout.NORTH);
@@ -51,24 +51,24 @@ public class ServerMainForm extends JFrame{
         panel_1.setLayout(new BorderLayout(0, 0));
 
 
-        JLabel lblNewLabel = new JLabel("Порт: ");
+        JLabel lblNewLabel = new JLabel(IServerFormStringConst.GUI_LABEL_PORT);
         lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
         panel_2.add(lblNewLabel);
 
         textFieldPort = new JTextField();
         panel_2.add(textFieldPort);
-        textFieldPort.setText("666");
+        textFieldPort.setText(IServerFormStringConst.GUI_TEXT_FIELD_PORT);
         textFieldPort.setColumns(5);
 
-        btnStart = new JButton("Старт");
+        btnStart = new JButton(IServerFormStringConst.GUI_BTN_START);
         panel_3.add(btnStart);
 
-        btnStop = new JButton("Стоп");
+        btnStop = new JButton(IServerFormStringConst.GUI_BTN_STOP);
         btnStop.setEnabled(false);
         panel_3.add(btnStop);
 
         textAreaConsole = new JTextArea();
-        textAreaConsole.setText("Консоль: \n");
+        textAreaConsole.setText(IServerFormStringConst.GUI_TEXT_AREA);
         textAreaConsole.setEnabled(false);
         panel_1.add(textAreaConsole, BorderLayout.CENTER);
     }

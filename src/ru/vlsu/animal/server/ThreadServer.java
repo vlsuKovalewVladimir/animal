@@ -41,8 +41,6 @@ public class ThreadServer extends Thread{
                 outputStream.writeObject(animalList);
             }
 
-
-
             interrupt();
         } catch (Exception e) {
             e.printStackTrace();

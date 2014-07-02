@@ -94,8 +94,14 @@ public class ClientMainFormServerBtnListener implements ActionListener {
 
             outputStream.writeObject(animalList);
 
-            outputStream.close();
-            socket.close();
+            /*outputStream.close();
+            socket.close();*/
+
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(form,
+                    IServerFormStringConst.MESSAGE_DIALOG_BODY,
+                    IServerFormStringConst.MESSAGE_DIALOG_TITLE,
+                    JOptionPane.WARNING_MESSAGE);
 
         } catch (IllegalArgumentException ex){
             JOptionPane.showMessageDialog(form,

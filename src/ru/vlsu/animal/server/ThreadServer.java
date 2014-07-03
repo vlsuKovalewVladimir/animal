@@ -3,12 +3,13 @@ package ru.vlsu.animal.server;
 import ru.vlsu.animal.storage.AnimalList;
 import ru.vlsu.animal.storage.ServerStorage;
 
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.OutputStream;
 import java.net.Socket;
 
+/**
+ * Отдельный поток для сервера
+ */
 public class ThreadServer extends Thread{
 
     private Socket socket;

@@ -8,6 +8,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Хранит в себе всех животных
+ */
 public class AnimalList implements Serializable{
     private List<Herbivores> herbivoresList;
     private List<Predator>   predatorList;

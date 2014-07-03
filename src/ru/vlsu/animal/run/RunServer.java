@@ -4,6 +4,9 @@ import ru.vlsu.animal.server.gui.ServerMainForm;
 
 import java.awt.EventQueue;
 
+/**
+ * Запуск сервера
+ */
 public class RunServer {
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {

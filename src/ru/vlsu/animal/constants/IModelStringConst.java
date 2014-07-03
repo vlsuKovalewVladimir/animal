@@ -1,5 +1,8 @@
 package ru.vlsu.animal.constants;
 
+/**
+ * String константы для model
+ */
 public interface IModelStringConst {
 
     public final static String MESSAGE_EXCEPTION_DEAD    = "Уже мертв";

@@ -2,20 +2,20 @@ package ru.vlsu.animal.client.gui;
 
 import ru.vlsu.animal.constants.IClientFormStringConst;
 import ru.vlsu.animal.constants.IServerFormStringConst;
-import ru.vlsu.animal.model.Animal;
 import ru.vlsu.animal.storage.AnimalList;
 
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
-
+/**
+ * Класс реализующий обработчики событий кнопок
+ * отвечающих за взаимодействие с сервером
+ */
 public class ClientMainFormServerBtnListener implements ActionListener {
 
     private ClientMainForm form;

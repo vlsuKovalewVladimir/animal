@@ -7,6 +7,9 @@ import java.awt.BorderLayout;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
+/**
+ * Главное окно серверной части
+ */
 public class ServerMainForm extends JFrame{
 
     private JButton    btnStart;

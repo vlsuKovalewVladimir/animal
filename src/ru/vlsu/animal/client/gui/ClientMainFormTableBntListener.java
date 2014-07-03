@@ -6,10 +6,13 @@ import ru.vlsu.animal.storage.AnimalList;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Класс реализующий обработчики событий
+ * кнопок отвечающих за взаимодействие данными
+ */
 public class ClientMainFormTableBntListener implements ActionListener {
 
     private ClientMainForm form;

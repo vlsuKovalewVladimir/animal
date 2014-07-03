@@ -7,6 +7,9 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Класс реализующий обработчики событий кнопок
+ */
 public class ServerFormListener implements ActionListener {
 
     private ServerMainForm form;

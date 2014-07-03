@@ -18,6 +18,9 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
+/**
+ * Главное окно клиентской части
+ */
 public class ClientMainForm extends JFrame {
 
     private JTable tableHerbivores;

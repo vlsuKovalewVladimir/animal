@@ -1,5 +1,8 @@
 package ru.vlsu.animal.constants;
 
+/**
+ * String константы для окна клиента
+ */
 public interface IClientFormStringConst {
 
     public final static String MESSAGE_DIALOG_TITLE    = "Неверные данные";

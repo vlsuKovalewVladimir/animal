@@ -14,6 +14,9 @@ import java.io.IOException;
 
 import java.util.List;
 
+/**
+ * Класс реализует взаимодействие с файловой системой
+ */
 public class ServerStorage {
 
     private AnimalList animalList;

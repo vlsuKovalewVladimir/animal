@@ -5,6 +5,9 @@ import java.net.ServerSocket;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Сервер
+ */
 public class Server extends Thread{
 
     private int port;
